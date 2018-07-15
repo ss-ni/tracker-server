@@ -86,10 +86,10 @@ module.exports = class loginDao {
       console.log(`data:${JSON.stringify(data)}`);
       // if session exists and has not yet expired
       if (data.Count === 1) {
-        if (new Date().getTime() - data.Items[0].timestamp.N < 1) {
+        if (new Date().getTime() - data.Items[0].timestamp.N < 24 * 60 * 60 * 1000) {
           updateUnexpiredSession(username);
           console.log(`sessionId ${data.Items[0].sessionId.S}`);
-        } else {
+        } else { // session exists but expired, delete session then add a new one
           const deleteParams = {
             TableName: 'session',
             Key: {
