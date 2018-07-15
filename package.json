@@ -1,5 +1,5 @@
 {
-  "name": "Elastic-Beanstalk-Sample-App",
+  "name": "tracker",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
@@ -10,7 +10,9 @@
     "npm": "^6.1.0"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "eslint:fix": "./node_modules/.bin/eslint .eslintrc.js --fix",
+    "eslint": "./node_modules/.bin/eslint .eslintrc.js"
   },
   "devDependencies": {
     "cheerio": "^1.0.0-rc.2",
